@@ -38,8 +38,7 @@ public class RocketBot extends ListenerAdapter {
     @Override
     public void onGuildMessageReceived(@NotNull GuildMessageReceivedEvent event) {
         String msg = event.getMessage().getContentRaw();
-        String prefix = event.getJDA().getSelfUser().getAsMention() + " ";
-
+        String prefix = String.format("<@!%s> ", event.getJDA().getSelfUser().getId());
         if(msg.startsWith(prefix)) {
             GuildCommandSource source = new GuildCommandSource(
                     event.getMember(),
