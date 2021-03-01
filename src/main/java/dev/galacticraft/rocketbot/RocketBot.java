@@ -25,6 +25,8 @@ package dev.galacticraft.rocketbot;
 import com.mojang.brigadier.exceptions.CommandSyntaxException;
 import dev.galacticraft.rocketbot.cmd.CommandManager;
 import dev.galacticraft.rocketbot.cmd.GuildCommandSource;
+import dev.galacticraft.rocketbot.utils.Builders;
+import net.dv8tion.jda.api.EmbedBuilder;
 import net.dv8tion.jda.api.OnlineStatus;
 import net.dv8tion.jda.api.entities.Activity;
 import net.dv8tion.jda.api.events.ReadyEvent;
@@ -51,7 +53,9 @@ public class RocketBot extends ListenerAdapter {
                 event.getChannel().sendTyping().queue();
                 this.commandManager.getDispatcher().execute(msg.substring(prefix.length()), source);
             } catch (CommandSyntaxException e) {
-                event.getMessage().reply(e.getMessage()).queue();
+                event.getMessage().reply(Builders.message().setEmbed(
+                        Builders.embed(true).setDescription(String.format("```\n%s\n```", e.getMessage())).build()
+                ).build()).queue();
             }
         }
     }

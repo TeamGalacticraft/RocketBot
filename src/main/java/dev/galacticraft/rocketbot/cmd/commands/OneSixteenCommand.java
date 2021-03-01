@@ -27,7 +27,7 @@ import com.mojang.brigadier.CommandDispatcher;
 import com.mojang.brigadier.context.CommandContext;
 import dev.galacticraft.rocketbot.cmd.CommandManager;
 import dev.galacticraft.rocketbot.cmd.GuildCommandSource;
-import dev.galacticraft.rocketbot.utils.MessageUtils;
+import dev.galacticraft.rocketbot.utils.Builders;
 import net.dv8tion.jda.api.EmbedBuilder;
 
 public class OneSixteenCommand {
@@ -37,13 +37,13 @@ public class OneSixteenCommand {
     }
 
     public static int execute(CommandContext<GuildCommandSource> context) {
-        EmbedBuilder builder = MessageUtils.embedBuilder();
+        EmbedBuilder builder = Builders.embed();
         builder.setTitle("Galacticraft 1.16+ Status");
         builder.setDescription("Galacticraft for 1.16+ is currently in development.\n" +
                 "You can compile the current version yourself from [Github](https://github.com/StellarHorizons/Galacticraft-Rewoven)" +
                 " but no help doing so or any support regarding the build will be provided.");
 
-        context.getSource().getMessage().reply(MessageUtils.messageBuilder()
+        context.getSource().getMessage().reply(Builders.message()
                 .setEmbed(builder.build())
                 .build()
         ).queue();

@@ -26,16 +26,27 @@ import net.dv8tion.jda.api.EmbedBuilder;
 import net.dv8tion.jda.api.MessageBuilder;
 import net.dv8tion.jda.api.entities.Message;
 
+import java.awt.*;
 import java.time.OffsetDateTime;
 
-public class MessageUtils {
+public class Builders {
 
-    public static MessageBuilder messageBuilder() {
+    public static MessageBuilder message() {
         return new MessageBuilder().denyMentions(Message.MentionType.values());
     }
 
-    public static EmbedBuilder embedBuilder() {
+    public static EmbedBuilder embed() {
+        return embed(false);
+    }
+
+    public static EmbedBuilder embed(boolean error) {
         EmbedBuilder builder = new EmbedBuilder();
+
+        if(error) {
+            builder.setColor(new Color(235, 64, 52));
+            builder.setTitle("An error occurred.");
+        }
+
         builder.setTimestamp(OffsetDateTime.now());
         builder.setFooter("RocketBot(" + Constants.VERSION + ")",
                 "https://cdn.iosoft.works/assets/rocketbot.png");
