@@ -48,6 +48,7 @@ public class RocketBot extends ListenerAdapter {
             );
 
             try {
+                event.getChannel().sendTyping().queue();
                 this.commandManager.getDispatcher().execute(msg.substring(prefix.length()), source);
             } catch (CommandSyntaxException e) {
                 event.getMessage().reply(e.getMessage()).queue();
