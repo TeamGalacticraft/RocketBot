@@ -39,6 +39,10 @@ public class ConfigManager {
     private final File exampleFile = new File("config.example.json");
     private Config config;
 
+    public ConfigManager() {
+        this.load();
+    }
+
     public void load() {
         if(configFile.exists()) {
             try {
