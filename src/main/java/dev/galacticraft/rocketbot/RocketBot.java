@@ -38,16 +38,18 @@ public class RocketBot extends ListenerAdapter {
     @Override
     public void onGuildMessageReceived(@NotNull GuildMessageReceivedEvent event) {
         String msg = event.getMessage().getContentRaw();
-        // @TODO: dynamic bot user id for prefix.
-        if(msg.startsWith("<@!815682466027274269> ")) {
+        String prefix = event.getJDA().getSelfUser().getAsMention() + " ";
+
+        if(msg.startsWith(prefix)) {
             GuildCommandSource source = new GuildCommandSource(
                     event.getMember(),
                     event.getMessage(),
                     event.getGuild(),
                     event.getChannel()
             );
+
             try {
-                this.commandManager.getDispatcher().execute(msg.substring("<@!815682466027274269> ".length()), source);
+                this.commandManager.getDispatcher().execute(msg.substring(prefix.length()), source);
             } catch (CommandSyntaxException e) {
                 event.getMessage().reply(e.getMessage()).queue();
             }
