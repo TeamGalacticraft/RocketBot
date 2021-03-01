@@ -22,7 +22,6 @@
 
 package dev.galacticraft.rocketbot;
 
-import com.mojang.brigadier.CommandDispatcher;
 import com.mojang.brigadier.exceptions.CommandSyntaxException;
 import dev.galacticraft.rocketbot.cmd.CommandManager;
 import dev.galacticraft.rocketbot.cmd.GuildCommandSource;
