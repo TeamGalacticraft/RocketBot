@@ -1,23 +1,9 @@
-name: Java CI
+name: build
 
-on: [push, pull_request]
+on: push
 
 jobs:
-  check-licenses:
-    runs-on: ubuntu-latest
-    strategy:
-      matrix:
-        java: [ 11-jdk ]
-    container:
-      image: openjdk:${{ matrix.java }}
-      options: --user root
-    steps:
-      - uses: actions/checkout@v1
-      - uses: gradle/wrapper-validation-action@v1
-      - name: Check Licenses
-        run: ./gradlew checkLicenses
   build:
-    needs: [check-licenses]
     runs-on: ubuntu-latest
     strategy:
       matrix:
