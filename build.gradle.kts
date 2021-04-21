@@ -5,10 +5,10 @@ plugins {
     id("org.cadixdev.licenser") version("0.5.0")
 }
 
-val jdaVersion = project.property("jda.version").toString()
-val logbackVersion = project.property("logback.version").toString()
-val brigadierVersion = project.property("brigadier.version").toString()
-val gsonVersion = project.property("gson.version").toString()
+val jdaVersion       = "4.2.0_229"
+val logbackVersion   = "1.2.3"
+val brigadierVersion = "1.0.17"
+val gsonVersion      = "2.8.6"
 
 group = "dev.galacticraft"
 version = "0.0.0"
