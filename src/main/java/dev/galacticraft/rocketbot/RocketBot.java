@@ -24,9 +24,8 @@ package dev.galacticraft.rocketbot;
 
 import com.mojang.brigadier.exceptions.CommandSyntaxException;
 import dev.galacticraft.rocketbot.cmd.CommandManager;
-import dev.galacticraft.rocketbot.cmd.GuildCommandSource;
+import dev.galacticraft.rocketbot.cmd.DiscordSource;
 import dev.galacticraft.rocketbot.utils.Builders;
-import net.dv8tion.jda.api.EmbedBuilder;
 import net.dv8tion.jda.api.OnlineStatus;
 import net.dv8tion.jda.api.entities.Activity;
 import net.dv8tion.jda.api.events.ReadyEvent;
@@ -42,12 +41,7 @@ public class RocketBot extends ListenerAdapter {
         String msg = event.getMessage().getContentRaw();
         String prefix = String.format("<@!%s> ", event.getJDA().getSelfUser().getId());
         if(msg.startsWith(prefix)) {
-            GuildCommandSource source = new GuildCommandSource(
-                    event.getMember(),
-                    event.getMessage(),
-                    event.getGuild(),
-                    event.getChannel()
-            );
+            DiscordSource source = new DiscordSource(event.getJDA(), event.getMessage());
 
             try {
                 event.getChannel().sendTyping().queue();

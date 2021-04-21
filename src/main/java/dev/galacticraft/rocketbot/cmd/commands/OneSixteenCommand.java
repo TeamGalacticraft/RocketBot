@@ -26,17 +26,17 @@ import com.mojang.brigadier.Command;
 import com.mojang.brigadier.CommandDispatcher;
 import com.mojang.brigadier.context.CommandContext;
 import dev.galacticraft.rocketbot.cmd.CommandManager;
-import dev.galacticraft.rocketbot.cmd.GuildCommandSource;
+import dev.galacticraft.rocketbot.cmd.DiscordSource;
 import dev.galacticraft.rocketbot.utils.Builders;
 import net.dv8tion.jda.api.EmbedBuilder;
 
 public class OneSixteenCommand {
 
-    public static void register(CommandDispatcher<GuildCommandSource> dispatcher) {
+    public static void register(CommandDispatcher<DiscordSource> dispatcher) {
         dispatcher.register(CommandManager.literal("1.16").executes(OneSixteenCommand::execute));
     }
 
-    public static int execute(CommandContext<GuildCommandSource> context) {
+    public static int execute(CommandContext<DiscordSource> context) {
         EmbedBuilder builder = Builders.embed();
         builder.setTitle("Galacticraft 1.16+ Status");
         builder.setDescription("Galacticraft for 1.16+ is currently in development.\n" +
