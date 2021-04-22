@@ -7,7 +7,7 @@ plugins {
 
 val jdaVersion       = "4.2.0_229"
 val logbackVersion   = "1.2.3"
-val brigadierVersion = "1.0.17"
+val brigadierVersion = "1.0.500"
 val gsonVersion      = "2.8.6"
 
 group = "dev.galacticraft"
