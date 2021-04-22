@@ -5,7 +5,7 @@ plugins {
     id("org.cadixdev.licenser") version("0.5.0")
 }
 
-val jdaVersion       = "4.2.0_229"
+val jdaVersion       = "4.2.0_247"
 val logbackVersion   = "1.2.3"
 val brigadierVersion = "1.0.500"
 val gsonVersion      = "2.8.6"
