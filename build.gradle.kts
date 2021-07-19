@@ -6,7 +6,7 @@ plugins {
 }
 
 val jdaVersion       = "4.2.0_247"
-val logbackVersion   = "1.2.3"
+val logbackVersion   = "1.2.4"
 val brigadierVersion = "1.0.500"
 val gsonVersion      = "2.8.6"
 
